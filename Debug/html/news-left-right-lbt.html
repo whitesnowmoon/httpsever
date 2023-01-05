@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lbt</title>
+    <script src="../js/jquerey.js"></script>
+    <style>
+        .wp_news {
+
+            margin: 100px 500px;
+            border: 2px solid black;
+        }
+
+        /* 定位在这里的小框 */
+
+        /* 显示窗口 */
+        .news_list {
+            position: relative;
+            /* overflow: hidden; */
+            display: block;
+        }
+
+        .slick_track {
+            border: 1px red solid;
+            position: relative;
+            width: 1200px;
+            transform: translate3d(0px, 0px, 0px);
+            transform-style: preserve-3d;
+            transition: all 1s;
+        }
+
+        .slick_track li {
+            width: 320px;
+            line-height: 36px;
+            float: left;
+            border: 1px solid green;
+            transition: all 1s;}
+
+        .clear {
+            clear: both;
+            content: '';
+        }
+
+        .news_img {
+            width: 140px;
+            height: 100px;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            margin-right: 16px;
+        }
+
+        .news_img img {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .news_title {
+            line-height: 22px;
+
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            var num=0,i=0;
+            $('.bt').click(function(){
+                num-=320;i++;
+                var nav=document.querySelector('.slick_track ');
+   var lis=nav.children;//lis装着nav的亲儿子
+                 $('.slick_track').css({  'transform': 'translate3d('+num+'px,0,0)'  })
+                $(lis).css({'visibility':'hidden'});
+                $(lis[i]). css({'visibility':'visible'});
+                console.log(lis[i]);
+                console.log(i);
+            })
+            $('.bt2').click(function(){
+                var nav=document.querySelector('.slick_track ');
+   var lis=nav.children;//lis装着nav的亲儿子
+                num+=320;
+                i--;
+                 $('.slick_track').css({  'transform': 'translate3d('+num+'px,0,0)'  })
+                 $(lis).css({'visibility':'hidden'});
+                $(lis[i]). css({'visibility':'visible'});
+                console.log(lis[i]);
+                console.log(i);
+            })
+           
+        })
+    </script>
+    <div class="wp_news">
+        <ul>
+            <div class="news_list">
+                <div class="slick_track">
+                    <li>1
+                        <div class="news_img  "><a href="#"><img src="../image/main2-news01.jpg" alt=""></a></div>
+                        <div class="news_nr">
+                            <div class="news_title">【CCTV-2财经频道】《中国经济大讲堂》解密航天...</div>
+                        </div>
+                    </li>
+                    <li>2
+                        <div class="news_img "><a href="#"><img src="../image/main2-news02.jpg" alt=""></a></div>
+                        <div class="news_nr">
+                            <div class="news_title">【CCTV-2财经频道】《中国经济大讲堂》解密航天...</div>
+                        </div>
+                    </li>
+                    <li>3
+                        <div class="news_img "><a href="#"><img src="../image/main2-news03.jpg" alt=""></a></div>
+                        <div class="news_nr">
+                            <div class="news_title">【CCTV-2财经频道】《中国经济大讲堂》解密航天...</div>
+                        </div>
+                    </li>
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+
+        </ul>
+    </div>
+<input type="button" class="bt" value="斤斤计较军">
+<input type="button" class="bt2" value="往后">
+
+
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 170px;
+            background-color: antiquewhite;
+            border: 1px red solid;
+            position: relative;
+        }
+        .box:hover{
+            cursor: pointer;
+        }
+        .left{
+            width: 20px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: rgb(255, 255, 255);
+            /* background-color:rgb(196, 194, 193); */
+            font-size: 20px;
+            position: absolute;
+            top: 50px;
+
+        }
+        .right{
+            width: 20px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: rgb(255, 255, 255);
+            /* background-color:rgb(196, 194, 193); */
+            font-size: 20px;
+            position: absolute;
+            top: 50px;
+            right: 0;
+
+        }
+        .left:hover{
+            background-color: #00000050;
+            color: #fff;
+        }
+        .right:hover{
+            background-color: #00000050;
+            color: #fff;
+        }
+        .box-img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: all 0.4s ease-in-out;
+        }
+        .box-img:nth-child(1){
+            opacity: 1;
+        }
+        .box-img img{
+            width: 400px;
+            height: 170px;
+       }
+       .bt ul {
+           position: absolute;
+           bottom: 0px;
+           left: 100px;
+       }
+       .bt ul li{
+           float: left;
+           width: 10px;height: 10px;
+           border-radius: 100%;
+           list-style-type: none;
+           background-color: #fff;
+           margin: 0 4px;
+       }
+       .bt ul li:nth-child(1){
+           background-color: #1e824a;
+       }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box-img"><img src="../image/foot01.jpg" alt=""></div>
+        <div class="box-img"><img src="../image/foot02.jpg" alt=""></div>
+        <div class="box-img"><img src="../image/foot03.jpg" alt=""></div>
+        
+        <div class="left">&lt;</div>
+        <div class="right">&gt;</div>
+       <div class="bt">
+        <ul>
+            <li class="button"></li>
+            <li  class="button"></li>
+            <li  class="button"></li>
+        </ul>
+       </div>
+    </div>
+    <script text="javascript/text" src="../js/jquerey.js"></script>
+    <script text="javascript/text">
+        $(function(){
+        var index=0;
+        var f;
+        function change(num){
+            $('.box-img').css('opacity','0');
+            $('.box-img').eq(num).css('opacity','1');
+            change_color(num);
+        }
+        function change_color(num){
+            $('.button').css('background-color','#eef1ef');
+             $('.button ').eq(num).css('background-color','#1e824a');
+
+        }
+        
+        dsqhs();
+        function dsqhs(){
+                 f=setInterval(function(){
+            if(index>=2)index=-1;
+            //$('.box-img').length()-1;
+            index++;
+           change(index);
+            
+        },3000)
+        }
+       
+        
+        $('.left').click(function(){
+            if(index==0)index=$('.box-img').length;
+            index--;
+          change(index);
+        })
+         
+        $('.right').click(function(){
+
+            // clearInterval(f);
+
+            if(index==$('.box-img').length-1)index=-1;
+            index++;
+           change(index);
+           
+           
+            // dsqhs();点击就暂停，再调用函数
+        })
+//         $(".box").mouseenter(function(){
+//     alert('您的鼠标移到了 id="p1" 的元素上!');
+//   });
+        $('.button').click(function(){
+            var indext=$(this).index();
+            console.log(indext);
+            change(indext);
+        })
+
+        $('.box').mouseenter(function(){
+            clearInterval(f);
+            console.log('tzl');
+          })
+        $('.box').mouseleave(dsqhs);
+    })
+
+    </script>
+</body>
+</html>
