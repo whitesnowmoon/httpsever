@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Get_SeverResponse.h" />
+    <ClInclude Include="Post_SeverResponse.h" />
     <ClInclude Include="Response.h" />
     <ClInclude Include="Response_Factory.h" />
     <ClInclude Include="SeverConfig.h" />
     <ClInclude Include="SeverFile.h" />
+    <ClInclude Include="SeverFileRecv.h" />
     <ClInclude Include="SeverRequest.h" />
     <ClInclude Include="SeverSocketHandle.h" />
     <ClInclude Include="SeverSocketOpen.h" />
@@ -32,10 +34,12 @@
   <ItemGroup>
     <ClCompile Include="Get_SeverResponse.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Post_SeverResponse.cpp" />
     <ClCompile Include="Response.cpp" />
     <ClCompile Include="Response_Factory.cpp" />
     <ClCompile Include="SeverConfig.cpp" />
     <ClCompile Include="SeverFile.cpp" />
+    <ClCompile Include="SeverFileRecv.cpp" />
     <ClCompile Include="SeverRequest.cpp" />
     <ClCompile Include="SeverSocketHandle.cpp" />
     <ClCompile Include="SeverSocketOpen.cpp" />

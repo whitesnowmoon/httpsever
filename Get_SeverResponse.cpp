@@ -1,6 +1,6 @@
 #include "Get_SeverResponse.h"
 
-Get_SeverResponse::Get_SeverResponse(SeverRequest* request, SOCKET handle):request(request),handle(handle) {
+Get_SeverResponse::Get_SeverResponse(SeverRequest* request):request(request),handle(request->sock) {
 
 }
 

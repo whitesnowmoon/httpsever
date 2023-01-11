@@ -57,6 +57,8 @@ Response* SeverRequest::creatResponse() {
 	Response_Factory factory; Response* response=nullptr;
 	if(this->method=="GET")
 		response = factory.CreatResponse(module_name::GET,this);
+	if (this->method == "POST")
+		response = factory.CreatResponse(module_name::POST, this);
 	return response;
 }
 

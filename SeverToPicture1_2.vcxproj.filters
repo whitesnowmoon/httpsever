@@ -42,6 +42,12 @@
     <ClInclude Include="Response.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Post_SeverResponse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverFileRecv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SeverSocketOpen.cpp">
@@ -72,6 +78,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Response.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Post_SeverResponse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverFileRecv.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -20,7 +20,6 @@ public:
 	int length;
 	std::string type;
 	int state;
-private:
 	std::fstream file;
 };
 #endif

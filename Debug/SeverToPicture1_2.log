@@ -1,10 +1,4 @@
-﻿  Get_SeverResponse.cpp
-D:\acpp\SeverToPicture1_2\Get_SeverResponse.cpp(27,20): warning C4018: “<”: 有符号/无符号不匹配
-  Main.cpp
-  Response_Factory.cpp
-  SeverRequest.cpp
-  SeverSocketHandle.cpp
-  SeverSocketOpen.cpp
-  正在生成代码...
-D:\acpp\SeverToPicture1_2\Response_Factory.cpp(9): warning C4715: “Response_Factory::CreatResponse”: 不是所有的控件路径都返回值
+﻿  Post_SeverResponse.cpp
+D:\acpp\SeverToPicture1_2\Post_SeverResponse.cpp(18,13): warning C4129: “*”: 不可识别的字符转义序列
+D:\acpp\SeverToPicture1_2\Post_SeverResponse.cpp(31,25): warning C4244: “=”: 从“__int64”转换到“unsigned int”，可能丢失数据
   SeverToPicture1_2.vcxproj -> D:\acpp\SeverToPicture1_2\Debug\SeverToPicture1_2.exe

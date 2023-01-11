@@ -2,7 +2,8 @@
 #define _RESPONSE_H
 enum class module_name
 {
-	GET
+	GET,
+	POST
 };
 class Response
 {
