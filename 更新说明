@@ -1,0 +1,6 @@
+# httpsever
+简易的http服务器,主要用来给客户端发送图片
+/******************************************/
+完成了部分post接口，可以提供两种post
+1.application/x-www-form-urlencoded 提供字符串上传
+2.multipart/form-data 提供文件上传(不允许多分隔)
