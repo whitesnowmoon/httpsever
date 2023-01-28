@@ -3,7 +3,7 @@
 
 
 int my_cb(char* buf, int size, int rwflag, void* u) {
-    static char password[16] = "liguoliang1848\0";
+    static char password[16] = "null\0";
     memcpy(buf, (char*)password, 16);
     buf[size - 1] = '\0';
     return 16;
