@@ -27,16 +27,16 @@ SeverSSL::SeverSSL() {
     std::string CA_file_path="Debug/Moon_CA_SEVER.crt";
     std::string KEY_file_path = "Debug/Moon_CA_SEVER.key";
 
-    SSL_library_init();// SSL ¿â³õÊ¼»¯ 
-    OpenSSL_add_all_algorithms();// ÔØÈëËã·¨ 
-    SSL_load_error_strings(); // ÔØÈëËùÓĞ SSL ´íÎóÏûÏ¢ 
+    SSL_library_init();// SSL åº“åˆå§‹åŒ– 
+    OpenSSL_add_all_algorithms();// è½½å…¥ç®—æ³• 
+    SSL_load_error_strings(); // è½½å…¥æ‰€æœ‰ SSL é”™è¯¯æ¶ˆæ¯ 
  
-    ctx = SSL_CTX_new(SSLv23_server_method());//´´½¨Ö÷½á¹¹
+    ctx = SSL_CTX_new(SSLv23_server_method());//åˆ›å»ºä¸»ç»“æ„
     if (ctx == NULL) {
         std::cout << "SSL_CTX_new() error";
         exit(1);
     }
-    errorcode = SSL_CTX_use_certificate_file(ctx, CA_file_path.c_str(), SSL_FILETYPE_PEM);//¼ÓÔØÖ¤Êé
+    errorcode = SSL_CTX_use_certificate_file(ctx, CA_file_path.c_str(), SSL_FILETYPE_PEM);//åŠ è½½è¯ä¹¦
     if (errorcode <= 0) {
         std::cout << "SSL_CTX_use_certificate_file() error";
         exit(1);
@@ -44,17 +44,17 @@ SeverSSL::SeverSSL() {
 
     //pem_password_cb* fun = nullptr;
     SSL_CTX_set_default_passwd_cb(ctx, my_cb);
-    std::string password = "liguoliang1848\0";
-    //char password[16] = "liguoliang1848\0";
+    std::string password = "null\0";
+    //char password[16] = "null\0";
     //SSL_CTX_set_default_passwd_cb_userdata(ctx, password);
 
 
-    errorcode = SSL_CTX_use_PrivateKey_file(ctx, KEY_file_path.c_str(), SSL_FILETYPE_PEM);//¼ÓÔØË½Ô¿
+    errorcode = SSL_CTX_use_PrivateKey_file(ctx, KEY_file_path.c_str(), SSL_FILETYPE_PEM);//åŠ è½½ç§é’¥
     if (errorcode <= 0) {
         std::cout << "SSL_CTX_use_PrivateKey_file() error";
         exit(1);
     }
-    if (!SSL_CTX_check_private_key(ctx)) {//ÑéÖ¤Ë½Ô¿
+    if (!SSL_CTX_check_private_key(ctx)) {//éªŒè¯ç§é’¥
         std::cout << "SSL_CTX_check_private_key() error";
         exit(1);
     }
@@ -73,7 +73,7 @@ SSL_Handle::SSL_Handle(const SSL_Handle& old) :ctx(ctx), fun(fun) {
 
 SSL_Handle::SSL_Handle(SOCKET sock, SSL_FUN fun, SSL_CTX* ctx):ctx(ctx),fun(fun) {
     ssl = SSL_new(ctx);
-    SSL_set_fd(ssl, sock);//°ó¶¨
+    SSL_set_fd(ssl, sock);//ç»‘å®š
 }
 
 int SSL_Handle::run() {
@@ -99,7 +99,7 @@ int SSL_Handle::run() {
 }
 
 SSL_Handle::~SSL_Handle() {
-    /* ¹Ø±Õ SSL Á¬½Ó */
+    /* å…³é—­ SSL è¿æ¥ */
         SSL_shutdown(ssl);
         SSL_free(ssl);
 }
