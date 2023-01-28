@@ -1,0 +1,16 @@
+{
+	<connect IP="127.0.0.1" PORT="80" APP="_HTTP_">connect:1</connect>
+	<connect IP="127.0.0.1" PORT="443" APP="_HTTPS_">connect:2</connect>
+
+	<srcrootpath>D:/acpp/httpsever-version1_3/httpsever-version1_3/Debug</srcrootpath>
+	<openfile>\/html/index.html</openfile>
+	<CA 
+	CA="Debug/Moon_CA_SEVER.crt" 
+	key="Debug/Moon_CA_SEVER.key"
+	>密码输入位(不要含有关键字符)</CA>
+	
+	<header url="*"  Content-Length="?">severheader</header>
+	<header url="*"  Content-Type="?">severheader</header>
+	<header url="*"  Sever="personal sever">severheader</header>
+	<header url="*"  Connection="keep-alive">severheader</header>
+}

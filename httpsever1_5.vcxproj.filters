@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverNet\SeverSocketOpen.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverConfig\SeverXML.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverNet\SocketHandle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverError\SeverError.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverConfig\SeverConfig.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverNet\SocketApp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverNet\SeverAppSocket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverNet\SeverSSL.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverNet\AppSSLHandle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverNet\AppSockHandle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverNet\SeverHttpHandle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverThreadPool\SeverThreadPool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverHttp\SeverRequest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverHttp\Response_Factory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverHttp\Response.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverSrc\SeverFileLocal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverHttp\Get_SeverResponse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SeverNet\SeverSocketOpen.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverConfig\SeverXML.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverNet\SocketHandle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverNet\SeverSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverError\SeverError.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverConfig\SeverConfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverNet\SocketApp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverNet\SeverAppSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverNet\SeverSSL.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverNet\AppSSLHandle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverNet\AppSockHandle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverThreadPool\SeverThreadpool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverNet\SeverHttpHandle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverNet\SeverApiINet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverHttp\SeverHttpIterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverHttp\SeverRequest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverHttp\Response_Factory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverHttp\Response.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverSrc\SeverFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverSrc\SeverFileLocal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverHttp\Get_SeverResponse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SeverNet\SeverNet文档.md" />
+  </ItemGroup>
+</Project>
