@@ -6,6 +6,7 @@
 bool SeverFileLocal::SeverFile_open(std::string path) {
 	rootPath = SeverConfig::srcrootpath;
 	std::string localpath =rootPath+path;
+	std::cout << localpath << "\n";
 	file.open(localpath, std::ios_base::in | std::ios_base::binary);
 	if (file.is_open())
 	{

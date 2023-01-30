@@ -1,29 +1,38 @@
 #include "Post_SeverResponse.h"
-#include "../SeverSrc/SeverFileRecv.h"
+#include "../SeverSrc/SeverFileLocal.h"
 void Post_SeverResponse::anwser() {
 	std::string content;
 	post_Content_Type_num type=analysis_post_Content_Type();
-	if (type == post_Content_Type_num::multipart_form_data) {
-		get_multipart_form_data();//ÎÄ¼þ
-	}
 	if (type == post_Content_Type_num::application_x_www_form_urlencoded) {
 		application_x_www_form_urlencoded(content);//×Ö·û´®
+		std::vector<std::pair<std::string, std::string>> form=Getkeyword(content);
+		if (form[1].second == "123456") {  //ÃÜÂë
+			std::pair<std::string, std::string> module;
+			module.first = "Set-Cookie";
+			module.second = "123456; Path=/";
+			addheader_(module);
+		}
+		else
+		{
+			loadfile(SeverConfig::openfile);
+		}
+		Response_combine();
+		Response_send(this->request->handle);
 	}
-	SeverFile send_file;
-	if(this->request->url=="/")
-		this->request->url = "/html/index.html";
-	send_file.SeverFile_open(this->request->url);
-	send_file.SeverFile_send(this->request->sock);
-	send_file.SeverFile_close();
-	std::cout<<"\*************/\n" << content << "\n";
+	else
+	{
+		char buff[10240];
+		request->handle->App_recv(buff, 10240);
+	}
+	std::cout<<"\*************/\n" << content << "\n\*******************************\\\n";
 }
 
 void Post_SeverResponse::destroy() {
 	delete this;
 }
 
-Post_SeverResponse::Post_SeverResponse(SeverRequest* request):request(request){
-
+Post_SeverResponse::Post_SeverResponse(SeverRequest* request):Response(request){
+	this->Length = 0;
 }
 
 post_Content_Type_num Post_SeverResponse::analysis_post_Content_Type() {
@@ -33,7 +42,7 @@ post_Content_Type_num Post_SeverResponse::analysis_post_Content_Type() {
 	for (auto i = post_Content_Type.begin(); i!= post_Content_Type.end(); i++)
 	{
 		int c = ContentType.find(i->first);
-		if (c== 1) {
+		if (c== 0) {
 			return i->second;
 		}
 	}
@@ -41,48 +50,32 @@ post_Content_Type_num Post_SeverResponse::analysis_post_Content_Type() {
 
 }
 
-int Post_SeverResponse::get_multipart_form_data() {
-	std::string temp = "boundary=----";
-	int index = this->ContentType.find(temp);
-	std::string boundary = "------";
-	boundary += this->ContentType.substr(index + temp.size());
-	unsigned int sum = 0,error=0;
-	if (this->Length > 1024000000) {
 
-	}
-	char* content_temp = new char[this->Length];
-	while (sum!=this->Length)
+std::vector<std::pair<std::string, std::string>> Post_SeverResponse::Getkeyword(std::string& url) {
+	std::vector<std::pair<std::string, std::string>> form;
+	int index = 0; int flex = 0; int start = 0;
+	while (true)
 	{
-		int recv_t=recv(this->request->sock, content_temp, 65536, 0);
-		if (recv_t < 0) { error++; }
-		else{
-			sum += recv_t;
-		}
-		if (error > 1024000000|| sum > this->Length)return _ERROR_;
+		flex = url.find('=', flex);
+		index=url.find('&', index);
+		form.emplace_back(url.substr(start, flex - start), url.substr(flex+1, index - flex-1));
+		if (index == -1)break;
+		start = (++index);
+		flex++;
 
 	}
-	std::string content_temp_,content;
-	content_temp_.append(content_temp, this->Length);
-	int f_index = content_temp_.find("\r\n\r\n");
-	int l_index = content_temp_.find(boundary, f_index+4);
-	content = content_temp_.substr(f_index + 4, l_index- (f_index+4+2));
-	delete[] content_temp;
-	SeverFileRecv file;
-	file.SeverFile_open("temp.html");
-	file.SeverFile_recv(content);
-	file.SeverFile_close();
-	return sum;
+	return form;
 }
 
 int Post_SeverResponse::application_x_www_form_urlencoded(std::string& content) {
 	unsigned int sum = 0, error = 0;
 	if (this->Length > 1024000000) {
-
+		
 	}
 	char* content_temp = new char[this->Length];
 	while (sum != this->Length)
 	{
-		int recv_t = recv(this->request->sock, content_temp, 65536, 0);
+		int recv_t = this->request->handle->App_recv(content_temp, 65536);
 		if (recv_t < 0) { error++; }
 		else {
 			sum += recv_t;

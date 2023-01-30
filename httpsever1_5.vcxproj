@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SeverHttp\Get_SeverResponse.cpp" />
+    <ClCompile Include="SeverHttp\Post_SeverResponse.cpp" />
     <ClCompile Include="SeverHttp\Response.cpp" />
     <ClCompile Include="SeverHttp\Response_Factory.cpp" />
     <ClCompile Include="SeverHttp\SeverRequest.cpp" />
@@ -163,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SeverHttp\Get_SeverResponse.h" />
+    <ClInclude Include="SeverHttp\Post_SeverResponse.h" />
     <ClInclude Include="SeverHttp\Response.h" />
     <ClInclude Include="SeverHttp\Response_Factory.h" />
     <ClInclude Include="SeverHttp\SeverHttpIterator.h" />

@@ -9,7 +9,7 @@ void SeverSocketOpen::run() {
 	SeverThreadPool* pool = SeverThreadPool::Get_SeverThreadPool_Instance();
 	for (size_t i = 0; i < socketHandles.size(); i++)
 	{
-		for (size_t j = 0; j < 8; j++)
+		for (size_t j = 0; j < std::thread::hardware_concurrency()/ socketHandles.size(); j++)
 		{
 			SeverHttpHandle* htc = new SeverHttpHandle(socketHandles[i]);
 			htc->setCallback(callBackFun);

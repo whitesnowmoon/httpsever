@@ -20,11 +20,11 @@ public:
 	Post_SeverResponse(SeverRequest* request);
 	~Post_SeverResponse() = default;
 private:
-	SeverRequest* request;
 	unsigned int Length;
 	std::string ContentType;
 	post_Content_Type_num analysis_post_Content_Type();
 	int get_multipart_form_data();
+	std::vector<std::pair<std::string, std::string>> Getkeyword(std::string& url);
 	int application_x_www_form_urlencoded(std::string& content);
 	std::map<std::string, post_Content_Type_num> post_Content_Type{
 		{"application/x-www-form-urlencoded",post_Content_Type_num::application_x_www_form_urlencoded},

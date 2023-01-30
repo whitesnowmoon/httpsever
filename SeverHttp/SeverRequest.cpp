@@ -3,6 +3,7 @@
 
 namespace conv
 {
+#ifdef _SEVER_WIN_
 	std::string GbkToUtf8(const char* src_str) {
 		int len = MultiByteToWideChar(CP_ACP, 0, src_str, -1, NULL, 0);
 		wchar_t* wstr = new wchar_t[len + 1];
@@ -16,7 +17,7 @@ namespace conv
 		if (wstr) delete[] wstr;
 		if (str) delete[] str;
 		return strTemp;
-	}
+}
 	std::string Utf8ToGbk(const char* src_str) {
 		int len = MultiByteToWideChar(CP_UTF8, 0, src_str, -1, NULL, 0);
 		wchar_t* wszGBK = new wchar_t[len + 1];
@@ -31,6 +32,9 @@ namespace conv
 		if (szGBK) delete[] szGBK;
 		return strTemp;
 	}
+#endif // _SEVER_WIN_
+
+
 }
 SeverRequest::SeverRequest(SeverAppSocket* handle):httpIterator(handle),handle(handle){
 }
@@ -45,6 +49,7 @@ int SeverRequest::analysis() {
 		input_char = ++httpIterator;
 		if (input_char == 0x0A) {
 			urltransfer(this->url);
+			popspace();
 			return SEVER_REQUEST_OK_;
 		}
 		else
@@ -199,8 +204,17 @@ void SeverRequest::urltransfer(std::string& url) {
 		replace_.push_back(c);
 		url.replace(index, 3, replace_);
 		index = url.find('%', index);
+	}//将转义字符去除
+	{
+		//额外参数处理?key1=value1&key2=value2
 	}
-	url = conv::Utf8ToGbk(url.c_str());
+	url = conv::Utf8ToGbk(url.c_str());//适配电脑字符
+}
+
+void SeverRequest::popspace() {
+	for (auto pos = header_.begin(); pos != header_.end(); pos++) {
+		pos->second.erase(0,1);
+	}
 }
 
 int SeverRequest::in_Header() {

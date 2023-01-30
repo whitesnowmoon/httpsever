@@ -69,6 +69,9 @@
     <ClCompile Include="SeverHttp\Get_SeverResponse.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SeverHttp\Post_SeverResponse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SeverNet\SeverSocketOpen.h">
@@ -132,6 +135,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="SeverHttp\Get_SeverResponse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverHttp\Post_SeverResponse.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

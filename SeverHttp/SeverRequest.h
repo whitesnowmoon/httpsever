@@ -16,7 +16,7 @@
 #define SEVER_REQUEST_READLY_ 3
 #define SEVER_REQUEST_END_ 4
 
-
+class Response;
 class SeverRequest
 {
 public:
@@ -44,6 +44,7 @@ private:
 	int inputcontent(std::string content);    //保留
 
 	void urltransfer(std::string& url);  //url分析
+	void popspace();                    //去除响应头前一个空格
 };
 
 #endif // !SEVERREQUEST_H

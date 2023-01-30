@@ -5,9 +5,9 @@ Response* Response_Factory::CreatResponse(module_name name, SeverRequest* reques
 		Response*p= new Get_SeverResponse(request);
 		return  p;
 	}
-	//if (module_name::POST == name) {
-	//	Response* p = new Post_SeverResponse(request);
-	//	return  p;
-	//}
+	if (module_name::POST == name) {
+		Response* p = new Post_SeverResponse(request);
+		return  p;
+	}
 	return nullptr;
 }
